@@ -3,11 +3,11 @@
 {% import "macros/datatables.html.twig" as tables %}
 {% import "macros/toolbar.html.twig" as toolbar %}
 
-{% block page_title %}{{ 'emptydescriptionchecker.title'|trans }}{% endblock %}
-{% block page_subtitle %}{{ 'emptydescriptionchecker.subtitle'|trans }}{% endblock %}
+{% block page_title %}{{ 'workerpayment.title'|trans }}{% endblock %}
+{% block page_subtitle %}{{ 'workerpayment.subtitle'|trans }}{% endblock %}
 
 {% block main %}
-    {{ widgets.callout('success', 'emptydescriptionchecker.usersnotified') }}
+    {{ widgets.callout('success', 'workerpayment.usersnotified') }}
     <script>
         setTimeout(function () {
             history.back();

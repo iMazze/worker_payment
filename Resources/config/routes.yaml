@@ -7,7 +7,7 @@ controllers:
     defaults:
         _locale: '%locale%'
 
-emptydescriptionchecker.api:
+workerpayment.api:
     resource: '../var/plugins/worker_payment/API/'
     type: rest
     prefix: /api

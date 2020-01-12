@@ -23,7 +23,7 @@ class WorkerPaymentCommand extends Command
     /**
      * @var string
      */
-    protected static $defaultName = 'emptydescriptionchecker:sendmails';
+    protected static $defaultName = 'workerpayment:sendmails';
     /**
      * @var WorkerPaymentRepository
      */

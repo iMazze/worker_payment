@@ -153,7 +153,7 @@ class WorkerPaymentController extends AbstractController
                 ]
             );
 
-            $this->sendEmail($user->getEmail(), $this->translator->trans('emptydescriptionchecker.email.subject'), $body);
+            $this->sendEmail($user->getEmail(), $this->translator->trans('workerpayment.email.subject'), $body);
         }
     }
 

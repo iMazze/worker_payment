@@ -74,7 +74,7 @@ class MenuSubscriber implements EventSubscriberInterface
             $emptyDescriptionCounter = $this->emptyDescriptionCheckerRepository->getAllEmptyDescriptionCounter();
             $badgeColor = ($emptyDescriptionCounter > 0 ? 'orange' : 'green');
             $menu->addChild(
-                new MenuItemModel('empty_description_checker', 'emptydescriptionchecker.title', 'empty_description_checker', [], 'fas fa-book', $emptyDescriptionCounter, $badgeColor)
+                new MenuItemModel('empty_description_checker', 'workerpayment.title', 'empty_description_checker', [], 'fas fa-book', $emptyDescriptionCounter, $badgeColor)
             );
         }
     }
