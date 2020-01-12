@@ -73,7 +73,7 @@ class WorkerPaymentController extends AbstractController
         $timeSheetQuery->setPage($page);
 
         /** @var Pagerfanta $entries */
-        $entries = $this->repository->getAllEmptyDescriptionsPaginated($timeSheetQuery);
+        $entries = $this->repository->getAllworkerPaymentsPaginated($timeSheetQuery);
 
         return $this->render('@WorkerPayment/index.html.twig', [
             'entries' => $entries,
@@ -110,7 +110,7 @@ class WorkerPaymentController extends AbstractController
     private function getEntriesToSendViaMail(): array
     {
         /** @var Timesheet $entriesToSend */
-        $entriesToSend = $this->repository->getAllEmptyDescriptions();
+        $entriesToSend = $this->repository->getAllworkerPayments();
 
         if (!empty($entriesToSend)) {
             $sortedEntriesToSend = [];
@@ -147,7 +147,7 @@ class WorkerPaymentController extends AbstractController
             $user = $this->getDoctrine()->getRepository(User::class)->find($userId);
 
             $body = $this->renderView(
-                '@WorkerPayment/emailWithEmptyDescriptions.html.twig', [
+                '@WorkerPayment/emailWithworkerPayments.html.twig', [
                     'allEntriesOfUser' => $allEntriesOfUser,
                     'locale' => $this->translator->setLocale($user->getLocale())
                 ]

@@ -42,7 +42,7 @@ class WorkerPaymentApiController extends BaseApiController
      */
     public function counterAction()
     {
-        $view = new View(['counter' => $this->workerPaymentRepository->getAllEmptyDescriptionCounter()], 200);
+        $view = new View(['counter' => $this->workerPaymentRepository->getAllworkerPaymentCounter()], 200);
 
         return $this->viewHandler->handle($view);
     }

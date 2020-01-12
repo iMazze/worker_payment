@@ -59,9 +59,9 @@ class WorkerPaymentRepository
      * @throws NonUniqueResultException
      * @throws NoResultException
      */
-    public function getAllEmptyDescriptionCounter()
+    public function getAllworkerPaymentCounter()
     {
-        $qb = $this->getAllEmptyDescriptionsQueryBuilder();
+        $qb = $this->getAllworkerPaymentsQueryBuilder();
 
         $qb
             ->resetDQLPart('select')
@@ -74,16 +74,16 @@ class WorkerPaymentRepository
     /**
      * @return mixed
      */
-    public function getAllEmptyDescriptions()
+    public function getAllworkerPayments()
     {
-        $qb = $this->getAllEmptyDescriptionsQueryBuilder()->select();
+        $qb = $this->getAllworkerPaymentsQueryBuilder()->select();
         return $qb->getQuery()->getResult();
     }
 
     /**
      * @return QueryBuilder
      */
-    private function getAllEmptyDescriptionsQueryBuilder()
+    private function getAllworkerPaymentsQueryBuilder()
     {
         $projectsOfCustomersToExclude = $this->customersToExcludeRepository->getProjectsOfCustomersToExclude();
         $usersToExclude = $this->usersToExcludeRepository->getUsersToExclude();
@@ -111,7 +111,7 @@ class WorkerPaymentRepository
      * @throws NoResultException
      * @throws NonUniqueResultException
      */
-    public function getAllEmptyDescriptionsPaginated(TimesheetQuery $query)
+    public function getAllworkerPaymentsPaginated(TimesheetQuery $query)
     {
         return $this->getPagerfantaForQuery($query);
     }
@@ -124,7 +124,7 @@ class WorkerPaymentRepository
      */
     public function getPagerfantaForQuery(TimesheetQuery $query): Pagerfanta
     {
-        $paginator = new Pagerfanta($this->getAllEmptyDescriptionsPaginator());
+        $paginator = new Pagerfanta($this->getAllworkerPaymentsPaginator());
         $paginator->setMaxPerPage($query->getPageSize());
         $paginator->setCurrentPage($query->getPage());
 
@@ -136,10 +136,10 @@ class WorkerPaymentRepository
      * @throws NoResultException
      * @throws NonUniqueResultException
      */
-    private function getAllEmptyDescriptionsPaginator(): PaginatorInterface
+    private function getAllworkerPaymentsPaginator(): PaginatorInterface
     {
-        $counter = $this->getAllEmptyDescriptionCounter();
-        $qb = $this->getAllEmptyDescriptionsQueryBuilder();
+        $counter = $this->getAllworkerPaymentCounter();
+        $qb = $this->getAllworkerPaymentsQueryBuilder();
 
         return new LoaderPaginator(new TimesheetLoader($qb->getEntityManager()), $qb, $counter);
     }

@@ -63,7 +63,7 @@ class WorkerPaymentCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $counter = $this->workerPaymentRepository->getAllEmptyDescriptionCounter();
+        $counter = $this->workerPaymentRepository->getAllworkerPaymentCounter();
 
         if ($counter > 0) {
             $this->workerPaymentController->sendEmailsAction(false);
