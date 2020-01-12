@@ -27,21 +27,21 @@ class WorkerPaymentCommand extends Command
     /**
      * @var WorkerPaymentRepository
      */
-    private $emptyDescriptionCheckerRepository;
+    private $workerPaymentRepository;
     /**
      * @var WorkerPaymentController
      */
-    private $emptyDescriptionCheckerController;
+    private $workerPaymentController;
 
     /**
      * WorkerPaymentCommand constructor.
-     * @param WorkerPaymentRepository $emptyDescriptionCheckerRepository
-     * @param WorkerPaymentController $emptyDescriptionCheckerController
+     * @param WorkerPaymentRepository $workerPaymentRepository
+     * @param WorkerPaymentController $workerPaymentController
      */
-    public function __construct(WorkerPaymentRepository $emptyDescriptionCheckerRepository, WorkerPaymentController $emptyDescriptionCheckerController)
+    public function __construct(WorkerPaymentRepository $workerPaymentRepository, WorkerPaymentController $workerPaymentController)
     {
-        $this->emptyDescriptionCheckerRepository = $emptyDescriptionCheckerRepository;
-        $this->emptyDescriptionCheckerController = $emptyDescriptionCheckerController;
+        $this->workerPaymentRepository = $workerPaymentRepository;
+        $this->workerPaymentController = $workerPaymentController;
 
         parent::__construct();
     }
@@ -63,10 +63,10 @@ class WorkerPaymentCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $counter = $this->emptyDescriptionCheckerRepository->getAllEmptyDescriptionCounter();
+        $counter = $this->workerPaymentRepository->getAllEmptyDescriptionCounter();
 
         if ($counter > 0) {
-            $this->emptyDescriptionCheckerController->sendEmailsAction(false);
+            $this->workerPaymentController->sendEmailsAction(false);
         }
 
         return 0;

@@ -30,19 +30,19 @@ class MenuSubscriber implements EventSubscriberInterface
     /**
      * @var WorkerPaymentRepository
      */
-    private $emptyDescriptionCheckerRepository;
+    private $workerPaymentRepository;
 
     /**
      * MenuSubscriber constructor.
      * @param TokenStorageInterface $tokenStorage
      * @param AuthorizationCheckerInterface $security
-     * @param WorkerPaymentRepository $emptyDescriptionCheckerRepository
+     * @param WorkerPaymentRepository $workerPaymentRepository
      */
-    public function __construct(TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $security, WorkerPaymentRepository $emptyDescriptionCheckerRepository)
+    public function __construct(TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $security, WorkerPaymentRepository $workerPaymentRepository)
     {
         $this->security = $security;
         $this->tokenStorage = $tokenStorage;
-        $this->emptyDescriptionCheckerRepository = $emptyDescriptionCheckerRepository;
+        $this->workerPaymentRepository = $workerPaymentRepository;
     }
 
     /**
@@ -71,7 +71,7 @@ class MenuSubscriber implements EventSubscriberInterface
         $menu = $event->getSystemMenu();
 
         if ($auth->isGranted('ROLE_SUPER_ADMIN') || $auth->isGranted('empty_description_checker')) {
-            $emptyDescriptionCounter = $this->emptyDescriptionCheckerRepository->getAllEmptyDescriptionCounter();
+            $emptyDescriptionCounter = $this->workerPaymentRepository->getAllEmptyDescriptionCounter();
             $badgeColor = ($emptyDescriptionCounter > 0 ? 'orange' : 'green');
             $menu->addChild(
                 new MenuItemModel('empty_description_checker', 'workerpayment.title', 'empty_description_checker', [], 'fas fa-book', $emptyDescriptionCounter, $badgeColor)

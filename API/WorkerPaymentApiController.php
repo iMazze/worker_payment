@@ -25,16 +25,16 @@ class WorkerPaymentApiController extends BaseApiController
     /**
      * @var WorkerPaymentRepository
      */
-    private $emptyDescriptionCheckerRepository;
+    private $workerPaymentRepository;
 
     /**
      * @param ViewHandlerInterface $viewHandler
-     * @param WorkerPaymentRepository $emptyDescriptionCheckerRepository
+     * @param WorkerPaymentRepository $workerPaymentRepository
      */
-    public function __construct(ViewHandlerInterface $viewHandler, WorkerPaymentRepository $emptyDescriptionCheckerRepository)
+    public function __construct(ViewHandlerInterface $viewHandler, WorkerPaymentRepository $workerPaymentRepository)
     {
         $this->viewHandler = $viewHandler;
-        $this->emptyDescriptionCheckerRepository = $emptyDescriptionCheckerRepository;
+        $this->workerPaymentRepository = $workerPaymentRepository;
     }
 
     /**
@@ -42,7 +42,7 @@ class WorkerPaymentApiController extends BaseApiController
      */
     public function counterAction()
     {
-        $view = new View(['counter' => $this->emptyDescriptionCheckerRepository->getAllEmptyDescriptionCounter()], 200);
+        $view = new View(['counter' => $this->workerPaymentRepository->getAllEmptyDescriptionCounter()], 200);
 
         return $this->viewHandler->handle($view);
     }
