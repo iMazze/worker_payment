@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of the EmptyDescriptionCheckerBundle.
+ * This file is part of the worker_payment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\EmptyDescriptionCheckerBundle\Controller;
+namespace KimaiPlugin\worker_payment\Controller;
 
 use App\Controller\AbstractController;
 use App\Entity\Timesheet;
@@ -16,7 +16,7 @@ use DateTime;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Exception;
-use KimaiPlugin\EmptyDescriptionCheckerBundle\Repository\EmptyDescriptionCheckerRepository;
+use KimaiPlugin\worker_payment\Repository\WorkerPaymentRepository;
 use Pagerfanta\Pagerfanta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Swift_Mailer;
@@ -27,13 +27,13 @@ use Symfony\Component\Translation\Translator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route(path="/empty-description-checker")
+ * @Route(path="/worker_payment")
  * @Security("is_granted('ROLE_SUPER_ADMIN') or is_granted('empty_description_checker')")
  */
-class EmptyDescriptionCheckerController extends AbstractController
+class WorkerPaymentController extends AbstractController
 {
     /**
-     * @var EmptyDescriptionCheckerRepository
+     * @var WorkerPaymentRepository
      */
     private $repository;
     /**
@@ -46,12 +46,12 @@ class EmptyDescriptionCheckerController extends AbstractController
     private $translator;
 
     /**
-     * EmptyDescriptionCheckerController constructor.
-     * @param EmptyDescriptionCheckerRepository $repository
+     * WorkerPaymentController constructor.
+     * @param WorkerPaymentRepository $repository
      * @param Swift_Mailer $mailer
      * @param TranslatorInterface $translator
      */
-    public function __construct(EmptyDescriptionCheckerRepository $repository, Swift_Mailer $mailer, TranslatorInterface $translator)
+    public function __construct(WorkerPaymentRepository $repository, Swift_Mailer $mailer, TranslatorInterface $translator)
     {
         $this->repository = $repository;
         $this->mailer = $mailer;
@@ -75,7 +75,7 @@ class EmptyDescriptionCheckerController extends AbstractController
         /** @var Pagerfanta $entries */
         $entries = $this->repository->getAllEmptyDescriptionsPaginated($timeSheetQuery);
 
-        return $this->render('@EmptyDescriptionChecker/index.html.twig', [
+        return $this->render('@WorkerPayment/index.html.twig', [
             'entries' => $entries,
             'page' => $page
         ]);
@@ -97,7 +97,7 @@ class EmptyDescriptionCheckerController extends AbstractController
         }
 
         if ($returnView) {
-            return $this->render('@EmptyDescriptionChecker/sendEmails.html.twig', []);
+            return $this->render('@WorkerPayment/sendEmails.html.twig', []);
         };
 
         return 0;
@@ -147,7 +147,7 @@ class EmptyDescriptionCheckerController extends AbstractController
             $user = $this->getDoctrine()->getRepository(User::class)->find($userId);
 
             $body = $this->renderView(
-                '@EmptyDescriptionChecker/emailWithEmptyDescriptions.html.twig', [
+                '@WorkerPayment/emailWithEmptyDescriptions.html.twig', [
                     'allEntriesOfUser' => $allEntriesOfUser,
                     'locale' => $this->translator->setLocale($user->getLocale())
                 ]

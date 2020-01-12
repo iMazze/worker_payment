@@ -8,6 +8,6 @@ controllers:
         _locale: '%locale%'
 
 emptydescriptionchecker.api:
-    resource: '../var/plugins/EmptyDescriptionCheckerBundle/API/'
+    resource: '../var/plugins/worker_payment/API/'
     type: rest
     prefix: /api

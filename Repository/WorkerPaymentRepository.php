@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of the EmptyDescriptionCheckerBundle.
+ * This file is part of the worker_payment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\EmptyDescriptionCheckerBundle\Repository;
+namespace KimaiPlugin\worker_payment\Repository;
 
 use App\Entity\Timesheet;
 use App\Repository\Loader\TimesheetLoader;
@@ -20,7 +20,7 @@ use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
 use Pagerfanta\Pagerfanta;
 
-class EmptyDescriptionCheckerRepository
+class WorkerPaymentRepository
 {
     /**
      * @var TimesheetRepository
@@ -40,7 +40,7 @@ class EmptyDescriptionCheckerRepository
     private $customersToExcludeRepository;
 
     /**
-     * EmptyDescriptionCheckerRepository constructor.
+     * WorkerPaymentRepository constructor.
      * @param EntityManagerInterface $entityManager
      * @param UsersToExcludeRepository $usersToExcludeRepository
      * @param ProjectsToExcludeRepository $projectsToExcludeRepository

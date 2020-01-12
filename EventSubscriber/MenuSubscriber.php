@@ -1,18 +1,18 @@
 <?php
 /*
- * This file is part of the EmptyDescriptionCheckerBundle.
+ * This file is part of the worker_payment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\EmptyDescriptionCheckerBundle\EventSubscriber;
+namespace KimaiPlugin\worker_payment\EventSubscriber;
 
 use App\Event\ConfigureMainMenuEvent;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use KevinPapst\AdminLTEBundle\Model\MenuItemModel;
-use KimaiPlugin\EmptyDescriptionCheckerBundle\Repository\EmptyDescriptionCheckerRepository;
+use KimaiPlugin\worker_payment\Repository\WorkerPaymentRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -28,7 +28,7 @@ class MenuSubscriber implements EventSubscriberInterface
      */
     private $tokenStorage;
     /**
-     * @var EmptyDescriptionCheckerRepository
+     * @var WorkerPaymentRepository
      */
     private $emptyDescriptionCheckerRepository;
 
@@ -36,9 +36,9 @@ class MenuSubscriber implements EventSubscriberInterface
      * MenuSubscriber constructor.
      * @param TokenStorageInterface $tokenStorage
      * @param AuthorizationCheckerInterface $security
-     * @param EmptyDescriptionCheckerRepository $emptyDescriptionCheckerRepository
+     * @param WorkerPaymentRepository $emptyDescriptionCheckerRepository
      */
-    public function __construct(TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $security, EmptyDescriptionCheckerRepository $emptyDescriptionCheckerRepository)
+    public function __construct(TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $security, WorkerPaymentRepository $emptyDescriptionCheckerRepository)
     {
         $this->security = $security;
         $this->tokenStorage = $tokenStorage;

@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of the EmptyDescriptionCheckerBundle.
+ * This file is part of the worker_payment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\EmptyDescriptionCheckerBundle\DependencyInjection;
+namespace KimaiPlugin\worker_payment\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class EmptyDescriptionCheckerExtension extends Extension implements PrependExtensionInterface
+class WorkerPaymentExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * @param array $configs
@@ -26,7 +26,7 @@ class EmptyDescriptionCheckerExtension extends Extension implements PrependExten
             $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('services.yaml');
         } catch (\Exception $e) {
-            echo '[EmptyDescriptionCheckerExtension] invalid services config found: ' . $e->getMessage();
+            echo '[WorkerPaymentExtension] invalid services config found: ' . $e->getMessage();
         }
     }
 

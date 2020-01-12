@@ -6,10 +6,10 @@ services:
         bind:
             $dataDirectory: "%kimai.data_dir%"
 
-    KimaiPlugin\EmptyDescriptionCheckerBundle\:
+    KimaiPlugin\worker_payment\:
         resource: '../../*'
         exclude: '../../{Resources}'
 
-    KimaiPlugin\EmptyDescriptionCheckerBundle\Controller\:
+    KimaiPlugin\worker_payment\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']

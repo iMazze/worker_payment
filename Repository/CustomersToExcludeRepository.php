@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of the EmptyDescriptionCheckerBundle.
+ * This file is part of the worker_payment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\EmptyDescriptionCheckerBundle\Repository;
+namespace KimaiPlugin\worker_payment\Repository;
 
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\QueryBuilder;
@@ -24,7 +24,7 @@ class CustomersToExcludeRepository
     /**
      * @var string
      */
-    private $folderName = 'EmptyDescriptionCheckerBundle';
+    private $folderName = 'worker_payment';
     /**
      * @var ProjectRepository
      */
