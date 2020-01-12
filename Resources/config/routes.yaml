@@ -8,6 +8,6 @@ controllers:
         _locale: '%locale%'
 
 workerpayment.api:
-    resource: '../var/plugins/worker_payment/API/'
+    resource: '../var/plugins/WorkerPayment/API/'
     type: rest
     prefix: /api

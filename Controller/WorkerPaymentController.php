@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of the worker_payment.
+ * This file is part of the WorkerPayment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\worker_payment\Controller;
+namespace KimaiPlugin\WorkerPayment\Controller;
 
 use App\Controller\AbstractController;
 use App\Entity\Timesheet;
@@ -16,7 +16,7 @@ use DateTime;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Exception;
-use KimaiPlugin\worker_payment\Repository\WorkerPaymentRepository;
+use KimaiPlugin\WorkerPayment\Repository\WorkerPaymentRepository;
 use Pagerfanta\Pagerfanta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Swift_Mailer;
@@ -27,8 +27,8 @@ use Symfony\Component\Translation\Translator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route(path="/worker_payment")
- * @Security("is_granted('ROLE_SUPER_ADMIN') or is_granted('worker_payment')")
+ * @Route(path="/WorkerPayment")
+ * @Security("is_granted('ROLE_SUPER_ADMIN') or is_granted('WorkerPayment')")
  */
 class WorkerPaymentController extends AbstractController
 {
@@ -59,8 +59,8 @@ class WorkerPaymentController extends AbstractController
     }
 
     /**
-     * @Route(path="", defaults={"page": 1}, name="worker_payment", methods={"GET"})
-     * @Route(path="/page/{page}", requirements={"page": "[1-9]\d*"}, name="worker_payment_paginated", methods={"GET"})
+     * @Route(path="", defaults={"page": 1}, name="WorkerPayment", methods={"GET"})
+     * @Route(path="/page/{page}", requirements={"page": "[1-9]\d*"}, name="WorkerPayment_paginated", methods={"GET"})
      *
      * @param int $page
      * @return Response
@@ -82,7 +82,7 @@ class WorkerPaymentController extends AbstractController
     }
 
     /**
-     * @Route(path="/send-emails", name="worker_payment_send_emails", methods={"GET"})
+     * @Route(path="/send-emails", name="WorkerPayment_send_emails", methods={"GET"})
      *
      * @param bool $returnView
      * @return int|Response

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the worker_payment.
+ * This file is part of the .
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -8,13 +8,13 @@
 
 declare(strict_types=1);
 
-namespace KimaiPlugin\worker_payment\API;
+namespace KimaiPlugin\\API;
 
 use App\API\BaseApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
-use KimaiPlugin\worker_payment\Repository\WorkerPaymentRepository;
+use KimaiPlugin\\Repository\WorkerPaymentRepository;
 
 class WorkerPaymentApiController extends BaseApiController
 {
@@ -38,7 +38,7 @@ class WorkerPaymentApiController extends BaseApiController
     }
 
     /**
-     * @Rest\Get(path="/worker_payment/counter")
+     * @Rest\Get(path="//counter")
      */
     public function counterAction()
     {

@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of the worker_payment.
+ * This file is part of the WorkerPayment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\worker_payment\DependencyInjection;
+namespace KimaiPlugin\WorkerPayment\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -36,7 +36,7 @@ class WorkerPaymentExtension extends Extension implements PrependExtensionInterf
             'permissions' => [
                 'roles' => [
                     'ROLE_SUPER_ADMIN' => [
-                        'worker_payment',
+                        'WorkerPayment',
                     ],
                 ],
             ],

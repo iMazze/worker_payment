@@ -4,8 +4,8 @@
 {% import "macros/toolbar.html.twig" as toolbar %}
 
 {% set actions = ({
-    'mail-sent': 'worker_payment/send-emails',
-    'help': 'https://gitlab.com/hmr-it/kimai2plugins/worker_payment/blob/master/README.md',
+    'mail-sent': 'WorkerPayment/send-emails',
+    'help': 'https://gitlab.com/hmr-it/kimai2plugins/WorkerPayment/blob/master/README.md',
     'money': 'https://paypal.me/hmrit'
 }) %}
 
@@ -41,7 +41,7 @@
                 <td class="{{ tables.data_table_column_class(tableName, columns, 'activity') }}">{{ entry.activity }}</td>
             </tr>
         {% endfor %}
-        {{ tables.data_table_footer(entries, 'worker_payment_paginated') }}
+        {{ tables.data_table_footer(entries, 'WorkerPayment_paginated') }}
     {% endif %}
 
 {% endblock %}

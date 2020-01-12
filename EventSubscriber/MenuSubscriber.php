@@ -1,18 +1,18 @@
 <?php
 /*
- * This file is part of the worker_payment.
+ * This file is part of the WorkerPayment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\worker_payment\EventSubscriber;
+namespace KimaiPlugin\WorkerPayment\EventSubscriber;
 
 use App\Event\ConfigureMainMenuEvent;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use KevinPapst\AdminLTEBundle\Model\MenuItemModel;
-use KimaiPlugin\worker_payment\Repository\WorkerPaymentRepository;
+use KimaiPlugin\WorkerPayment\Repository\WorkerPaymentRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -70,11 +70,11 @@ class MenuSubscriber implements EventSubscriberInterface
 
         $menu = $event->getSystemMenu();
 
-        if ($auth->isGranted('ROLE_SUPER_ADMIN') || $auth->isGranted('worker_payment')) {
+        if ($auth->isGranted('ROLE_SUPER_ADMIN') || $auth->isGranted('WorkerPayment')) {
             $workerPaymentCounter = $this->workerPaymentRepository->getAllworkerPaymentCounter();
             $badgeColor = ($workerPaymentCounter > 0 ? 'orange' : 'green');
             $menu->addChild(
-                new MenuItemModel('worker_payment', 'workerpayment.title', 'worker_payment', [], 'fas fa-book', $workerPaymentCounter, $badgeColor)
+                new MenuItemModel('WorkerPayment', 'workerpayment.title', 'WorkerPayment', [], 'fas fa-book', $workerPaymentCounter, $badgeColor)
             );
         }
     }

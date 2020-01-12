@@ -1,4 +1,4 @@
-# worker_payment
+# WorkerPayment
 
 A plugin for Kimai 2 which xxx
 ## Requirement
@@ -11,7 +11,7 @@ First clone it to your Kimai installation `plugins` directory:
 
 ```bash
 cd /kimai/var/plugins/
-git clone https://github.com/iMazze/worker_payment.git
+git clone https://github.com/iMazze/WorkerPayment.git
 ```
 
 And then rebuild the cache: 
@@ -30,4 +30,4 @@ The plugin should appear now.
 This bundle ships a new administration screen, which will be available for the following users:
 
 - `ROLE_SUPER_ADMIN` - every super administrator
-- `worker_payment` - every user that owns this permission
+- `WorkerPayment` - every user that owns this permission

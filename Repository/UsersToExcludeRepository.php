@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of the worker_payment.
+ * This file is part of the WorkerPayment.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace KimaiPlugin\worker_payment\Repository;
+namespace KimaiPlugin\WorkerPayment\Repository;
 
 class UsersToExcludeRepository
 {
@@ -21,7 +21,7 @@ class UsersToExcludeRepository
     /**
      * @var string
      */
-    private $folderName = 'worker_payment';
+    private $folderName = 'WorkerPayment';
 
     /**
      * @param string $dataDirectory
