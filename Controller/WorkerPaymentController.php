@@ -28,7 +28,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route(path="/worker_payment")
- * @Security("is_granted('ROLE_SUPER_ADMIN') or is_granted('empty_description_checker')")
+ * @Security("is_granted('ROLE_SUPER_ADMIN') or is_granted('worker_payment')")
  */
 class WorkerPaymentController extends AbstractController
 {
@@ -59,8 +59,8 @@ class WorkerPaymentController extends AbstractController
     }
 
     /**
-     * @Route(path="", defaults={"page": 1}, name="empty_description_checker", methods={"GET"})
-     * @Route(path="/page/{page}", requirements={"page": "[1-9]\d*"}, name="empty_description_checker_paginated", methods={"GET"})
+     * @Route(path="", defaults={"page": 1}, name="worker_payment", methods={"GET"})
+     * @Route(path="/page/{page}", requirements={"page": "[1-9]\d*"}, name="worker_payment_paginated", methods={"GET"})
      *
      * @param int $page
      * @return Response
@@ -82,7 +82,7 @@ class WorkerPaymentController extends AbstractController
     }
 
     /**
-     * @Route(path="/send-emails", name="empty_description_checker_send_emails", methods={"GET"})
+     * @Route(path="/send-emails", name="worker_payment_send_emails", methods={"GET"})
      *
      * @param bool $returnView
      * @return int|Response

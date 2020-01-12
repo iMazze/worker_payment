@@ -36,7 +36,7 @@ class WorkerPaymentExtension extends Extension implements PrependExtensionInterf
             'permissions' => [
                 'roles' => [
                     'ROLE_SUPER_ADMIN' => [
-                        'empty_description_checker',
+                        'worker_payment',
                     ],
                 ],
             ],

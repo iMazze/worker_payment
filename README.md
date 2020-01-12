@@ -30,4 +30,4 @@ The plugin should appear now.
 This bundle ships a new administration screen, which will be available for the following users:
 
 - `ROLE_SUPER_ADMIN` - every super administrator
-- `empty_description_checker` - every user that owns this permission
+- `worker_payment` - every user that owns this permission

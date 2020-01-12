@@ -70,11 +70,11 @@ class MenuSubscriber implements EventSubscriberInterface
 
         $menu = $event->getSystemMenu();
 
-        if ($auth->isGranted('ROLE_SUPER_ADMIN') || $auth->isGranted('empty_description_checker')) {
+        if ($auth->isGranted('ROLE_SUPER_ADMIN') || $auth->isGranted('worker_payment')) {
             $emptyDescriptionCounter = $this->workerPaymentRepository->getAllEmptyDescriptionCounter();
             $badgeColor = ($emptyDescriptionCounter > 0 ? 'orange' : 'green');
             $menu->addChild(
-                new MenuItemModel('empty_description_checker', 'workerpayment.title', 'empty_description_checker', [], 'fas fa-book', $emptyDescriptionCounter, $badgeColor)
+                new MenuItemModel('worker_payment', 'workerpayment.title', 'worker_payment', [], 'fas fa-book', $emptyDescriptionCounter, $badgeColor)
             );
         }
     }
