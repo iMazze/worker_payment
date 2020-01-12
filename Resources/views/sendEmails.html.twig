@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% import "macros/widgets.html.twig" as widgets %}
+{% import "macros/datatables.html.twig" as tables %}
+{% import "macros/toolbar.html.twig" as toolbar %}
+
+{% block page_title %}{{ 'emptydescriptionchecker.title'|trans }}{% endblock %}
+{% block page_subtitle %}{{ 'emptydescriptionchecker.subtitle'|trans }}{% endblock %}
+
+{% block main %}
+    {{ widgets.callout('success', 'emptydescriptionchecker.usersnotified') }}
+    <script>
+        setTimeout(function () {
+            history.back();
+        }, 5000);
+    </script>
+{% endblock %}
+

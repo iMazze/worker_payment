@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            width: 100% !important;
+        }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+        table th {
+            font-family: Arial, sans-serif;
+            font-size: 12pt;
+            background-color: #00a157;
+            color: #ffffff;
+            padding: 10px 10px 10px 10px;
+        }
+
+        table td {
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+        }
+
+        .header {
+            font-family: Arial, sans-serif;
+            font-size: 18pt;
+            color: #353535;
+            padding: 40px 3%;
+        }
+    </style>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td valign="top">
+            <table width="100%" class="maxW" style="margin: auto;" border="0">
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td align="left" valign="middle" class="header">
+                                    {{ 'emptydescriptionchecker.email.message'|trans }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <table width="94%" border="0" cellpadding="0" cellspacing="0">
+                                        <thead>
+                                        <th align="left" bgcolor="#252525">{{ 'label.begin'|trans }}</th>
+                                        <th align="left" bgcolor="#252525">{{ 'label.end'|trans }}</th>
+                                        <th align="right" bgcolor="#252525">{{ 'label.project'|trans }}</th>
+                                        <th align="right" bgcolor="#252525">{{ 'label.activity'|trans }}</th>
+                                        </thead>
+                                        <tbody>
+                                        {% for entry in allEntriesOfUser %}
+                                            <tr>
+                                                <td width="15%" align="left"
+                                                    bgcolor="{% if loop.index is even %}#D3D3D3{% else %}#FFFFFF{% endif %}"
+                                                    style="color: black; padding: 10px 0 10px 10px;">
+                                                    {{ entry.begin|date_full }}
+                                                </td>
+                                                <td width="15%" align="left"
+                                                    bgcolor="{% if loop.index is even %}#D3D3D3{% else %}#FFFFFF{% endif %}"
+                                                    style="color: black; padding: 10px 10px 10px 0;">
+                                                    {{ entry.end|date_full }}
+                                                </td>
+                                                <td width="20%" align="right"
+                                                    bgcolor="{% if loop.index is even %}#D3D3D3{% else %}#FFFFFF{% endif %}"
+                                                    style="color: black; padding: 10px 0 10px 10px;">
+                                                    {{ entry.project }}
+                                                </td>
+                                                <td width="50%" align="right"
+                                                    bgcolor="{% if loop.index is even %}#D3D3D3{% else %}#FFFFFF{% endif %}"
+                                                    style="color: black; padding: 10px 10px 10px 0;">
+                                                    {{ entry.activity }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="middle">
+                                    <br><br>Generated&nbsp;with&nbsp;<a
+                                            href="https://gitlab.com/hmr-it/kimai2plugins/EmptyDescriptionCheckerBundle">EmptyDescriptionCheckerBundle</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

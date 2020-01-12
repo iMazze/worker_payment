@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file date="2019-08-24T20:00:00Z" source-language="en" target-language="en" datatype="plaintext" original="messages.en.xliff">
+        <body>
+            <trans-unit id="emptydescriptionchecker.title">
+                <source>emptydescriptionchecker.title</source>
+                <target>Missing Description</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.subtitle">
+                <source>emptydescriptionchecker.subtitle</source>
+                <target>Find all entries without a description</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.usersnotified">
+                <source>emptydescriptionchecker.usersnotified</source>
+                <target>All users with timesheet entries without a description have been notified!</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.email.message">
+                <source>emptydescriptionchecker.email.message</source>
+                <target>Please add a description for the following entries!</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.email.subject">
+                <source>emptydescriptionchecker.email.subject</source>
+                <target>Kimai 2 - Entries without description</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

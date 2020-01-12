@@ -1,0 +1,28 @@
+{
+    "name": "hmr-it/empty-description-checker",
+    "description": "A plugin for Kimai 2 which shows you all entries without a description + email notification for users to ask them to add a description",
+    "homepage": "https://gitlab.com/hmr-it/kimai2plugins/EmptyDescriptionCheckerBundle",
+    "type": "kimai-plugin",
+    "require": {
+        "kimai/kimai2-composer": "*"
+    },
+    "keywords": [
+        "kimai",
+        "kimai-plugin"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "HMR-IT GmbH",
+            "email": "info@hmr-it.de",
+            "homepage": "http://www.hmr-it.de"
+        }
+    ],
+    "extra": {
+        "kimai": {
+            "require": "1.6",
+            "version": "0.6",
+            "name": "EmptyDescriptionCheckerBundle"
+        }
+    }
+}

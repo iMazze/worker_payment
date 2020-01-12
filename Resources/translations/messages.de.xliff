@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file date="2019-08-24T20:00:00Z" source-language="en" target-language="de" datatype="plaintext" original="messages.en.xliff">
+        <body>
+            <trans-unit id="emptydescriptionchecker.title">
+                <source>emptydescriptionchecker.title</source>
+                <target>Fehlende Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.subtitle">
+                <source>emptydescriptionchecker.subtitle</source>
+                <target>Finde alle Einträge ohne eine Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.usersnotified">
+                <source>emptydescriptionchecker.usersnotified</source>
+                <target>Alle Benutzer welche Einträge ohne eine Beschreibung haben wurden soeben per E-Mail informiert!</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.email.message">
+                <source>emptydescriptionchecker.email.message</source>
+                <target>Bitte ergänze bei allen nachfolgenden Einträgen eine aussagekräftige Beschreibung!</target>
+            </trans-unit>
+            <trans-unit id="emptydescriptionchecker.email.subject">
+                <source>emptydescriptionchecker.email.subject</source>
+                <target>Kimai 2 - Zeiten ohne Beschreibung</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+            $dataDirectory: "%kimai.data_dir%"
+
+    KimaiPlugin\EmptyDescriptionCheckerBundle\:
+        resource: '../../*'
+        exclude: '../../{Resources}'
+
+    KimaiPlugin\EmptyDescriptionCheckerBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
